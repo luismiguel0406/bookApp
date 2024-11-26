@@ -1,0 +1,9 @@
+<h1>Lista de Libros</h1>
+
+<div class="grid p-2">
+  @for (book of books; track $index) {
+  <div class="col-12 sm:col-4 md:col-2">
+    <book-card [book]="book"></book-card>
+  </div>
+  }
+</div>

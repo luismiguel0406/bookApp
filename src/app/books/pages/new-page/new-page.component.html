@@ -1,0 +1,80 @@
+<ng-template #saveButton >
+    <mat-card-actions>
+        <button class="m-2" mat-flat-button color="primary" (click)="addBook()">Guardar</button>
+      </mat-card-actions>
+</ng-template>
+
+<div class="grid">
+    <div class="col-12 sm:col-6">
+      <mat-card>
+        <mat-card-header class="mb-3">
+          <mat-card-title>{{ titleForm }} </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <form class="grid" [formGroup]="bookFormGroup">
+            <mat-form-field class="col-12 sm:col-6">
+              <mat-label>Titulo</mat-label>
+              <input
+                matInput
+                placeholder="titulo"
+                formControlName="title"
+              />
+            </mat-form-field>
+  
+            <mat-form-field class="col-12 sm:col-6">
+              <mat-label>Descripcion</mat-label>
+              <input
+                matInput
+                placeholder="descripcion"
+                formControlName="description"
+              />
+            </mat-form-field>
+  
+            <mat-form-field class="col-12 sm:col-6">
+              <mat-label>Número de paginas</mat-label>
+              <input
+                matInput
+                placeholder="número de paginas"
+                formControlName="pageCount"
+              />
+            </mat-form-field>
+
+            <mat-form-field class="col-12 sm:col-6">
+                <mat-label>Fecha de publicacion</mat-label>
+                <input
+                  matInput
+                  formControlName="publishDate"
+                  type="date"
+                />
+              </mat-form-field>
+           
+            <mat-form-field class="col-12">
+              <mat-label>Extracto</mat-label>
+              <textarea
+                matInput
+                placeholder="extracto"
+                formControlName="excerpt"
+              ></textarea>
+            </mat-form-field>
+  
+           
+          </form>
+        </mat-card-content>
+        <mat-card-actions *ngIf="_router.url.includes('edit'); else saveButton">
+          <button class="m-2" mat-flat-button color="warn" (click)="deleteBook()">Eliminar</button>
+          <button class="m-2" mat-flat-button color="primary" (click)="updateBook()">Actualizar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+    <div class="col-12 sm:col-6">
+      <mat-card>
+        <img
+          [style]="{'max-height.px':500}"
+          mat-card-image
+          src="https://www.shutterstock.com/image-photo/stack-colorful-books-isolated-on-600nw-2499703085.jpg"
+          alt="image"
+        />
+      </mat-card>
+    </div>
+  </div>
+  

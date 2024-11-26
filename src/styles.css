@@ -1,2 +1,14 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.growcard{
+ transition: all 300ms;
+}
+.growcard:hover{
+    transform:scale(1.1);
+    border-color: aqua;
+    cursor: pointer;
+}
+p {
+    text-align: justify;
+}

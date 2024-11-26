@@ -1,0 +1,42 @@
+<ng-template #loader>
+    <mat-grid-list cols="1">
+        <mat-grid-tile>
+          <mat-spinner></mat-spinner>
+        </mat-grid-tile>
+      </mat-grid-list>
+</ng-template>
+
+
+    <div *ngIf="book; else loader" class="grid p-2" >
+        <mat-card class="col-12 md:col-6" [ngStyle]="{height: 200}">
+          <mat-card-header>
+            <mat-card-title>
+              {{ book.title }}
+            </mat-card-title>
+          </mat-card-header>
+          <img mat-card-image src="https://www.shutterstock.com/image-photo/stack-colorful-books-isolated-on-600nw-2499703085.jpg" alt="image"  />
+        </mat-card>
+      
+        <mat-card class="col-12 md:col-6" [ngStyle]="{height: 300}">
+          <mat-card-header>
+            <mat-card-title>Informacion</mat-card-title>
+          </mat-card-header>
+      
+          <mat-card-content>
+            <mat-list>
+              <p><span class="font-medium">Descripcion:</span> {{ book.description }}</p>
+              <p><span class="font-medium">Extracto:</span> {{ book.excerpt | slice:1:1000}}...</p>
+              <p><span class="font-medium">Paginas:</span> {{ book.pageCount }}</p>
+              <p><span class="font-medium">Fecha de publicacion:</span> {{ book.publishDate | date:"shortDate" }}</p>
+            </mat-list>         
+          </mat-card-content>
+        
+            <mat-card-actions>
+              <button mat-flat-button color="warn" class="m-2" (click)="goBack()">Atras</button>
+              <button mat-flat-button color="primary" class="m-2" (click)="goToEdit()">Editar</button>
+            </mat-card-actions>
+       
+        </mat-card>
+      </div>
+
+
